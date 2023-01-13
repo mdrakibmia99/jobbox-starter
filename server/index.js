@@ -102,3 +102,12 @@ const run = async () => {
           },
         },
       };
+
+      const result = await jobCollection.updateOne(filter, updateDoc);
+
+      if (result?.acknowledged) {
+        return res.send({ status: true, data: result });
+      }
+
+      res.send({ status: false });
+    });
