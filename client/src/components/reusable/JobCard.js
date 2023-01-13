@@ -26,12 +26,19 @@ const JobCard = ({ jobData }) => {
       key={_id}
       className="border border-gray-300 shadow-xl p-5 rounded-2xl text-primary"
     >
-     
-          >
-            <RxCross2 />
-          </button>
-        )}
+      <div className="flex justify-between  text-primary">
+        <div>
+          <p className="text-xl">{position}</p>
+          <small className="text-primary/70 ">
+            by{" "}
+            <span className="font-semibold hover:text-primary cursor-pointer hover:underline transition-all">
+              {companyName}
+            </span>
+          </small>
+        </div>
+        <p>{location}</p>
       </div>
+      
     </div>
   );
 };
