@@ -21,7 +21,19 @@ const JobCard = ({ jobData }) => {
   } = useSelector((state) => state.auth);
   const [updateStatus] = useUpdateStatusMutation();
 
-  
+  return (
+    <div
+      key={_id}
+      className="border border-gray-300 shadow-xl p-5 rounded-2xl text-primary"
+    >
+     
+          >
+            <RxCross2 />
+          </button>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default JobCard;
