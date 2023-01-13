@@ -75,3 +75,12 @@ const run = async () => {
       const updateDoc = {
         $push: { applicants: { id: ObjectId(userId), email } },
       };
+
+      const result = await jobCollection.updateOne(filter, updateDoc);
+
+      if (result.acknowledged) {
+        return res.send({ status: true, data: result });
+      }
+
+      res.send({ status: false });
+    });
