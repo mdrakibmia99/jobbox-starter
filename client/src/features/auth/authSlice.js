@@ -7,8 +7,19 @@ import {
 } from "firebase/auth";
 import auth from "../../config/firebase.config";
 
+const initialState = {
+  user: { email: "", role: "" },
+  isLoading: true,
+  isError: false,
+  error: "",
+};
 
+export const createUser = createAsyncThunk(
+  "auth/createUser",
+  async ({ email, password }) => {
+    const data = await createUserWithEmailAndPassword(auth, email, password);
 
-export const { logout, setUser, toggleLoading } = authSlice.actions;
+    return data?.user?.email;
+  }
+);
 
-export default authSlice.reducer;
