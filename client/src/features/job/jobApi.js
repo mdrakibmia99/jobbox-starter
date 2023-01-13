@@ -75,3 +75,13 @@ const authApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Job"],
     }),
+
+    // candidate reply
+    candidateReply: builder.mutation({
+      query: (data) => ({
+        url: "candidate-reply",
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["Job"],
+    }),
