@@ -29,3 +29,20 @@ const authApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["User"],
     }),
+
+    // fetch all user
+    fetchAllUser: builder.query({
+      query: () => ({
+        method: "GET",
+        url: "users",
+      }),
+      providesTags: ["User"],
+    }),
+  }),
+});
+
+export const {
+  useRegisterMutation,
+  useFetchUserByEmailQuery,
+  useFetchAllUserQuery,
+} = authApi;
