@@ -27,3 +27,21 @@ const Navbar = () => {
             Jobs
           </Link>
         </li>
+
+        <li>
+          {email ? (
+            <button
+              onClick={() => signOut(auth).then(() => dispatch(logout()))}
+              className="hover:text-primary transition-all"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              className="border border-black px-2 py-1 rounded-full hover:border-primary hover:text-white hover:bg-primary hover:px-4 transition-all"
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
+        </li>
