@@ -6,7 +6,8 @@
 .pnp.js
 
 
-
+/src/layout/main
+/src/layout/dashboard/sidebar.js
 
 # testing
 /coverage
