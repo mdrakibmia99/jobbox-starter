@@ -116,3 +116,31 @@ const authSlice = createSlice({
         state.isError = true;
         state.error = error.message;
       })
+      // get user
+      .addCase(getUser.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.error = "";
+      })
+      .addCase(getUser.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.error = "";
+
+        if (payload.status) {
+          state.user = payload.data;
+        } else {
+          state.user.email = payload;
+        }
+      })
+      .addCase(getUser.rejected, (state, { error }) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.error = error.message;
+      });
+  },
+});
+
+export const { logout, setUser, toggleLoading } = authSlice.actions;
+
+export default authSlice.reducer;
