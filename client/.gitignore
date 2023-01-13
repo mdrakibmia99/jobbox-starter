@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-/src/features/auth/authApi.js
+
 /src/features/job
 # testing
 /coverage
