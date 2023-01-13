@@ -85,3 +85,28 @@ const authApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Job"],
     }),
+
+    // update job status
+    updateStatus: builder.mutation({
+      query: (data) => ({
+        url: `job-status/${data._id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["Job"],
+    }),
+  }),
+});
+
+export const {
+  usePostJobMutation,
+  useGetJobsQuery,
+  useGetJobQuery,
+  useApplyJobMutation,
+  useGetAppliedJobsQuery,
+  useQuestionMutation,
+  useReplyMutation,
+  useUpdateStatusMutation,
+  useEmployerQueryMutation,
+  useCandidateReplyMutation,
+} = authApi;
