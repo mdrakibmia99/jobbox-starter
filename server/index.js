@@ -219,3 +219,11 @@ const run = async () => {
       const result = await jobCollection.findOne({ _id: ObjectId(id) });
       res.send({ status: true, data: result });
     });
+
+    app.post("/job", async (req, res) => {
+      const job = req.body;
+
+      const result = await jobCollection.insertOne(job);
+
+      res.send({ status: true, data: result });
+    });
