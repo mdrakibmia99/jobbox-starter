@@ -82,3 +82,9 @@ const authSlice = createSlice({
         state.isError = true;
         state.error = error.message;
       })
+      // sign in
+      .addCase(loginUser.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.error = "";
+      })
