@@ -7,7 +7,13 @@ const Main = () => {
 
   return (
     <div>
-      
+      <Navbar />
+      <div
+        className={` ${
+          pathname === "/" ? "max-w-[1600px] px-5" : "max-w-7xl"
+        } max-w-[1600px] mx-auto`}
+      >
+        <Outlet />
       </div>
     </div>
   );
