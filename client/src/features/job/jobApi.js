@@ -11,3 +11,13 @@ const authApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Jobs"],
     }),
+
+    // apply new job
+    applyJob: builder.mutation({
+      query: (data) => ({
+        url: "apply",
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["Jobs"],
+    }),
