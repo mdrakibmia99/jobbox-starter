@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-/src/pages/candidateDashboard
+/src/pages/candidateDashboard/CandidateDashboard.js
 
 
 
