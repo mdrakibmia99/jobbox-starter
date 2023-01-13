@@ -4,8 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-# /src/features/
-/src/features/auth
+
+/src/features/auth/authApi.js
 /src/features/job
 # testing
 /coverage
