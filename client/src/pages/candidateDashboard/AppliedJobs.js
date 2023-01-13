@@ -13,7 +13,6 @@ const AppliedJobs = () => {
   if (isLoading) {
     return <Loading />;
   }
-
   return (
     <div>
       <h1 className="text-xl py-5">Applied jobs: <span className="font-semibold">{data?.data?.length}</span></h1>
