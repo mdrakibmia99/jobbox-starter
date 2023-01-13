@@ -84,3 +84,21 @@ const run = async () => {
 
       res.send({ status: false });
     });
+
+    app.patch("/query", async (req, res) => {
+      const userId = req.body.userId;
+      const jobId = req.body.jobId;
+      const email = req.body.email;
+      const question = req.body.question;
+
+      const filter = { _id: ObjectId(jobId) };
+      const updateDoc = {
+        $push: {
+          queries: {
+            id: ObjectId(userId),
+            email,
+            question: question,
+            reply: [],
+          },
+        },
+      };
