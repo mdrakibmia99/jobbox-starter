@@ -58,7 +58,40 @@ const routes = createBrowserRouter([
       },
     ],
   },
-  
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "add-job",
+        element: <AddJob />,
+      },
+      {
+        path: "job-list",
+        element: <JobsList />,
+      },
+      {
+        path: "candidate/:id",
+        element: <Candidates />,
+      },
+      {
+        path: "applied-jobs",
+        element: <AppliedJobs />,
+      },
+      {
+        path: "employer",
+        element: <EmployerDashboard />,
+      },
+      {
+        path: "candidate",
+        element: <CandidateDashboard />,
+      },
+    ],
+  },
 ]);
 
 export default routes;
