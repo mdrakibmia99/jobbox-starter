@@ -14,9 +14,16 @@ const Navbar = () => {
 
   return (
     <nav
-     
-    </nav>
-  );
-};
-
-export default Navbar;
+      className={`h-14 fixed w-full z-[999] ${
+        pathname === "/" ? null : "bg-white"
+      }`}
+    >
+      <ul className="max-w-7xl mx-auto flex gap-3 h-full items-center">
+        <li className="flex-auto font-semibold text-2xl">
+          <Link to="/">JobBox</Link>
+        </li>
+        <li>
+          <Link className="hover:text-primary transition-all" to="/jobs">
+            Jobs
+          </Link>
+        </li>
