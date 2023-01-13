@@ -55,3 +55,13 @@ const authApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Job"],
     }),
+
+    // employer query
+    employerQuery: builder.mutation({
+      query: (data) => ({
+        url: "employer-query",
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["Job"],
+    }),
