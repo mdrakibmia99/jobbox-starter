@@ -37,3 +37,11 @@ const authApi = apiSlice.injectEndpoints({
       }),
       providesTags: ["Jobs"],
     }),
+
+    // fetch specific job
+    getJob: builder.query({
+      query: (id) => ({
+        url: `job/${id}`,
+      }),
+      providesTags: ["Job"],
+    }),
