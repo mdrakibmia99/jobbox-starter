@@ -17,21 +17,6 @@ const client = new MongoClient(uri, {
 });
 
 // start 
-
-run().catch((err) => console.log(err));
-
-app.get("/", (req, res) => {
-  res.status(200).send({
-    acknowledged: true,
-    message: "OK",
-    description: "Jobbox Starter establishment successful.",
-  });
-});
-
-app.listen(port, () => {
-  console.log(`Jobbox Starter listening on port ${port}`);
-});
-
 const run = async () => {
   try {
     const db = client.db("jobbox-starter");
@@ -241,3 +226,18 @@ const run = async () => {
     // await client.close();
   }
 };
+
+run().catch((err) => console.log(err));
+
+app.get("/", (req, res) => {
+  res.status(200).send({
+    acknowledged: true,
+    message: "OK",
+    description: "Jobbox Starter establishment successful.",
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Jobbox Starter listening on port ${port}`);
+});
+
