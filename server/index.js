@@ -40,4 +40,10 @@ const run = async () => {
 
     console.log(`Successfully connected with Jobbox Starter`);
 
-    
+    app.post("/user", async (req, res) => {
+      const user = req.body;
+
+      const result = await userCollection.insertOne(user);
+
+      res.send(result);
+    });
