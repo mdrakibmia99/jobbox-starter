@@ -65,3 +65,13 @@ const run = async () => {
       const result = await cursor.toArray();
       res.send({ status: true, data: result });
     });
+
+    app.patch("/apply", async (req, res) => {
+      const userId = req.body.userId;
+      const jobId = req.body.jobId;
+      const email = req.body.email;
+
+      const filter = { _id: ObjectId(jobId) };
+      const updateDoc = {
+        $push: { applicants: { id: ObjectId(userId), email } },
+      };
