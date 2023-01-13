@@ -21,3 +21,11 @@ const authApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Jobs"],
     }),
+
+    // fetch all jobs
+    getJobs: builder.query({
+      query: () => ({
+        url: "jobs",
+      }),
+      providesTags: ["Jobs", "Job"],
+    }),
