@@ -198,4 +198,11 @@ const run = async () => {
       res.send({ status: false });
     });
 
-    
+    app.get("/applied-jobs/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { applicants: { $elemMatch: { email: email } } };
+      const cursor = jobCollection.find(query).project({ applicants: 0 });
+      const result = await cursor.toArray();
+
+      res.send({ status: true, data: result });
+    });
