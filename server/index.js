@@ -47,3 +47,15 @@ const run = async () => {
 
       res.send(result);
     });
+
+    app.get("/user/:email", async (req, res) => {
+      const email = req.params.email;
+
+      const result = await userCollection.findOne({ email });
+
+      if (result?.email) {
+        return res.send({ status: true, data: result });
+      }
+
+      res.send({ status: false });
+    });
