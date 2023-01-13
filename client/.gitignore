@@ -6,7 +6,8 @@
 .pnp.js
 
 /src/pages/candidateDashboard
-/src/pages/employeeDashboard
+/src/pages/employeeDashboard/EmployerDashboard.js
+/src/pages/employeeDashboard/JobsList.js
 
 
 
