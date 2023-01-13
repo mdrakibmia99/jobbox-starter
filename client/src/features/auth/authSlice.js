@@ -40,3 +40,45 @@ export const loginUser = createAsyncThunk(
     return data?.user?.email;
   }
 );
+
+export const googleLogin = createAsyncThunk("auth/googleLogin", async () => {
+  const provider = new GoogleAuthProvider();
+  const data = await signInWithPopup(auth, provider);
+
+  return data?.user?.user.email;
+});
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    logout: (state) => {
+      state.user = { email: "", role: "" };
+    },
+    setUser: (state, { payload }) => {
+      state.user.email = payload;
+      state.isLoading = false;
+    },
+    toggleLoading: (state) => {
+      state.isLoading = false;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      // sign up
+      .addCase(createUser.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.error = "";
+      })
+      .addCase(createUser.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.error = "";
+        state.user.email = payload;
+      })
+      .addCase(createUser.rejected, (state, { error }) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.error = error.message;
+      })
