@@ -6,7 +6,6 @@
 .pnp.js
 
 
-/src/components/reusable/Badge.js
 /src/components/reusable/JobCard.js
 
 # testing
