@@ -227,3 +227,17 @@ const run = async () => {
 
       res.send({ status: true, data: result });
     });
+
+    app.patch("/job-status/:id", async (req, res) => {
+      const result = await jobCollection.updateOne(
+        { _id: ObjectId(req.params.id) },
+        { $set: { status: req.body.status } },
+        { upsert: true }
+      );
+
+      res.send({ status: true, data: result });
+    });
+  } finally {
+    // await client.close();
+  }
+};
