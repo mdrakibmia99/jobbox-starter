@@ -168,3 +168,32 @@ const run = async () => {
 
       res.send({ status: false });
     });
+
+    app.patch("/candidate-reply", async (req, res) => {
+      const userId = req.body.userId;
+      const reply = req.body.reply;
+      console.log(reply);
+      console.log(userId);
+
+      const filter = { "queries.id": ObjectId(userId) };
+
+      const updateDoc = {
+        $push: {
+          "queries.$[user].reply": reply,
+        },
+      };
+      const arrayFilter = {
+        arrayFilters: [{ "user.id": ObjectId(userId) }],
+      };
+
+      const result = await userCollection.updateOne(
+        filter,
+        updateDoc,
+        arrayFilter
+      );
+      if (result.acknowledged) {
+        return res.send({ status: true, data: result });
+      }
+
+      res.send({ status: false });
+    });
