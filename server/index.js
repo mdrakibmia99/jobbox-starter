@@ -16,13 +16,7 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
-const run = async () => {
-  try {
-    
-  } finally {
-    // await client.close();
-  }
-};
+// start 
 
 run().catch((err) => console.log(err));
 
@@ -37,3 +31,13 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Jobbox Starter listening on port ${port}`);
 });
+
+const run = async () => {
+  try {
+    const db = client.db("jobbox-starter");
+    const userCollection = db.collection("user");
+    const jobCollection = db.collection("job");
+
+    console.log(`Successfully connected with Jobbox Starter`);
+
+    
