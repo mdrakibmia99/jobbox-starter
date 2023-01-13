@@ -38,7 +38,25 @@ const JobCard = ({ jobData }) => {
         </div>
         <p>{location}</p>
       </div>
-      
+      <div className="flex justify-between items-center mt-5">
+        <p className="flex gap-x-4">
+          <span>{employmentType}</span>
+          {role === "employer" && <span>Applicants: {applicants?.length}</span>}
+          <span>Status: {status}</span>
+        </p>
+        <button className="btn" onClick={() => navigate(`/job-details/${_id}`)}>
+          Details
+        </button>
+        {role === "employer" && pathname?.includes("job-list") && (
+          <button
+            className="btn"
+            title="Close this position"
+            onClick={() => updateStatus({ _id, status: "close" })}
+          >
+            <RxCross2 />
+          </button>
+        )}
+      </div>
     </div>
   );
 };
