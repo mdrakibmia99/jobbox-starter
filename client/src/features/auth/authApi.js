@@ -21,6 +21,7 @@ const authApi = apiSlice.injectEndpoints({
       },
     }),
 
+    
     // fetch user by email
     fetchUserByEmail: builder.query({
       query: (email) => ({
